@@ -31,6 +31,17 @@ const common = merge([
             path: PATHS.build,
             filename: "js/[name].js"
         },
+        //babel
+        module: {
+            rules: [{
+                test: /\.js$/,
+                exclude: [/node_modules/],
+                use: [{
+                    loader: 'babel-loader',
+                    options: { presets: ['es2015'] }
+                }]
+            }]
+        },
         //подключенные плагины для работы Webpack
         plugins: [
             //главная страница (index.html)
