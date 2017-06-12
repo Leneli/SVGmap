@@ -1,3 +1,155 @@
-h1 {
-    color: red;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+// Colors
+$color: #303030;
+$blue: #e1f5f9;
+$orange: #d7661e;
+$white: #fff;
+$gray: #cbcbcb;
+
+//Size
+$header: 70px;
+$footer: 150px;
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans";
+    font-size: 1em;
+    color: $color;
+}
+
+//прижать footer к низу страницы
+.page {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+}
+.main {flex: 1 0 auto;}
+.footer {flex: 0 0 auto;}
+
+//Main content
+.main {
+    height: 100vh;
+    position: relative;
+    background-color: $blue;
+    text-align: center;
+    overflow: hidden;
+}
+
+.zoom {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .95em;
+    z-index: 100;
+
+    & input {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    & > div > div {
+        display: flex;
+    }
+    
+    @media screen and (max-width: 413px) {
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            width: 50px;
+            height: 50px;
+            font-size: 2em;
+        }
+    }
+}
+
+//Footer and Header
+.header,
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background-color: $orange;
+    font-size: .9em;
+}
+
+.header {
+    height: $header;
+    color: $white;
+
+    .menu {
+        a:hover {
+            background-color: rgba(0, 0, 0, .1);
+        }
+    }
+}
+
+.footer {
+    height: $footer;
+    color: rgba($white, 0.6);
+
+    .menu {
+        flex-direction: column;
+        padding-top: 10px;
+
+        & > a {
+            padding-top: 10px;
+            &:hover {text-decoration: underline;}
+        }
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+
+    & > a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        padding: 0 10px;
+    }
+}
+
+.logo {
+    display: inline-block;
+    text-decoration: none;
+    color: $white;
+    font-family: "Open Sans Condensed";
+    font-size: 2.3em;
+}
+
+//КАРТА
+g[class^="worldmap"] {
+    stroke: #226688;
+    stroke-width: 0.5px;
+    cursor: pointer;
+    &:hover {
+        stroke-width: 1.5px;
+    }
+}
+//g {fill: #ffffdd;}
+
+//.worldmap   {fill: #ffffdd;}
+//.worldmap_1 {fill: #c0c0c0;}
+//.worldmap_2 {fill: #e0e0e0;}
+
+.tooltip {
+    position: absolute;
+    background-color: $white;
+    padding: 30px;
+    z-index: 1000;
 }

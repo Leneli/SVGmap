@@ -23,8 +23,7 @@ const common = merge([
         //точка входа для приложения
         //точками входа могут служить только те модули, которые не используются другими модулями приложения
         entry: {
-            "index": PATHS.source + "/pages/index/index.js",
-            "blog": PATHS.source + "/pages/blog/blog.js"
+            "index": PATHS.source + "/pages/index/index.js"
         },
         //имена файлов и дериктория для результатов работы
         output: {
@@ -49,12 +48,6 @@ const common = merge([
                 filename: "index.html",
                 chunks: ["index", "common"],
                 template: PATHS.source + "/pages/index/index.pug"
-            }),
-            //страница блога (blog.html)
-            new htmlWebpackPlugin({
-                filename: "blog.html",
-                chunks: ["blog", "common"],
-                template: PATHS.source + "/pages/blog/blog.pug"
             }),
             //вынести общие части кода из скриптов и стилей
             new webpack.optimize.CommonsChunkPlugin({

@@ -1,9 +1,14 @@
 import "./index.scss";
 import "normalize.css";
 
-import createMenu from "../../components/menu/menu";
+//import createMenu from "../../components/menu/menu";
+//var menu = createMenu(["Главная", "Обо мне", "Портфолио", "Контакты"], "menu");
+//document.body.appendChild(menu);
 
-var menu = createMenu(["Главная", "Обо мне", "Портфолио", "Контакты", "Обратная связь"], "menu");
-document.body.appendChild(menu);
 
-console.log("in index.js");
+import coordinates from "../../components/polygons/world-polygons";
+import createMap from "../../components/map/map";
+
+createMap(coordinates());
+
+console.log(coordinates());
